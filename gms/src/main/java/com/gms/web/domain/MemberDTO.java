@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Component
 @Data
-public class Member {
+public class MemberDTO {
 	protected String memId,
 	name,
 	roll,

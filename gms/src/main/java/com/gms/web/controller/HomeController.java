@@ -34,7 +34,7 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", context);
 		session.setAttribute("context", context);
 		//model.addAttribute("context", "");
-		return "home";
+		return "main";
 	}
 	
 }
