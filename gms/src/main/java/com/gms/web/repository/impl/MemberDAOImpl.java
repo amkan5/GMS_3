@@ -3,7 +3,7 @@ package com.gms.web.repository.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Repository;//뷰의시작
+import org.springframework.stereotype.Repository;
 import com.gms.web.domain.MemberDTO;
 import com.gms.web.repository.MemberDAO;
 @Repository
