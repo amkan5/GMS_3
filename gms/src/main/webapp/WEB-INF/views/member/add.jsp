@@ -4,17 +4,17 @@
  	<div id="add_layout">
  	<label for="userid"><b>아이디</b></label>
     <input type="text" placeholder="아이디 입력" name="userid" required>
-    
+    <br>
      <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="비밀번호 입력" name="password" required>
-    
+     <br>
     <label for="email"><b>이 름</b></label>
     <input type="text" placeholder="이 름 입 력" name="name" required>
-    
+     <br>
     <label for="email"><b>주민번호(생년월일-앞자리)</b></label>
     <input type="text" placeholder="(예시) 900101-1" name="ssn" required>
-        
-       <label for="userid"><b>소속팀</b></label>
+    <br>
+       <label for="userid"><b>소속팀</b></label> <br>
            <input type="radio" name="teamid" 
            		value="none" checked="checked" />없음
            <input type="radio" name="teamid" 
@@ -26,7 +26,7 @@
            <input type="radio" name="teamid" 
            		value="coddingstar" />코딩스타
         <br /><br />
-         <label for="userid"><b>프로젝트역할</b></label>
+         <label for="userid"><b>프로젝트역할</b></label> <br>
         <select name="roll" id="roll">
         	 <option value="leader">팀장</option>
         	 <option value="front">프론트개발</option>
@@ -35,7 +35,7 @@
         	 <option value="minfe">민폐</option>
         </select>
        <br /><br />
-        <label for="userid"><b>수강과목</b></label>
+        <label for="userid"><b>수강과목</b></label> <br>
         <input type="checkbox" name="subject" 
         	value="java" checked="checked" /> Java
         <input type="checkbox" name="subject" value="clang" /> C언어
@@ -45,10 +45,11 @@
         <input type="checkbox" name="subject" value="linux" /> Linux
         <input type="checkbox" name="subject" value="html" /> HTML
         <input type="checkbox" name="subject" value="spring" /> Spring
-    </div>
+    </div> <br>
+     <button type="button" id="add_btn" class="jo_btns">JOIN</button>
     </form>
     </div>
-    <script>
+   <!--  <script>
 	document.getElementById('joinFormBtn')
 	.addEventListener('click',function(){
 		var x = service.nullChecker(
@@ -90,7 +91,7 @@
 			alert(x.text);
 		}
 	});
-	</script>
+	</script> -->
  </body>
  </html>
  
