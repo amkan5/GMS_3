@@ -1,13 +1,22 @@
 package com.gms.web.controller;
 
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/member")
+import com.gms.web.domain.MemberDTO;
+
+
 @Controller
+@RequestMapping("/member")
 public class MemberController {
+	/*static final Logger logger = LoggerFactory.getLogger(HomeController.class);*/
+	@Autowired MemberDTO member;
 	@RequestMapping("/add")
-	public void add() {}
+	public void add() {
+		
+	}
 	@RequestMapping("/list")
 	public void list() {}
 	@RequestMapping("/search")
@@ -23,7 +32,9 @@ public class MemberController {
 	@RequestMapping("/login")
 	public void login() {}
 	@RequestMapping("/logout")
-	public void logout() {}
+	public void logout() {
+		
+	}
 	@RequestMapping("/fileupload")
 	public void fileupload() {}
 }

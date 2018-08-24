@@ -5,14 +5,13 @@
 <tiles-definitions>
 <definition name="public"
 	template="/WEB-INF/views/common/main.jsp">
-	<put-attribute name="nav" value=""/>
+	<put-attribute name="nav" value="/WEB-INF/views/common/navi.jsp"/>
 	<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
 	<put-attribute name="content" value=""/>
 	<!-- <put-attribute name="login" value="/WEB-INF/views/member/login.jsp"/>  -->
 	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
 </definition>
 	<definition name="public:*/*.tiles" extends="public">
-	 	<put-attribute name="nav" value="/WEB-INF/views/common/navi.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
 	</definition>
 	<definition name="auth:*/*.tiles" extends="public">
