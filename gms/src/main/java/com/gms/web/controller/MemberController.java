@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.gms.web.domain.MemberDTO;
 
 
-@Controller
+@Controller 
 @RequestMapping("/member")
 public class MemberController {
 	/*static final Logger logger = LoggerFactory.getLogger(HomeController.class);*/
 	@Autowired MemberDTO member;
 	@RequestMapping("/add")
 	public void add() {
-		
+		//후후후
 	}
 	@RequestMapping("/list")
 	public void list() {}
