@@ -15,7 +15,7 @@ public class MemberController {
 	@Autowired MemberDTO member;
 	@RequestMapping("/add")
 	public void add() {
-		//후후후
+		
 	}
 	@RequestMapping("/list")
 	public void list() {}
