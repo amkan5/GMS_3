@@ -10,7 +10,7 @@ import com.gms.web.domain.MemberDTO;
 
 @Controller 
 @RequestMapping("/member")
-public class MemberController {//
+public class MemberController {
 	/*static final Logger logger = LoggerFactory.getLogger(HomeController.class);*/
 	@Autowired MemberDTO member;
 	@RequestMapping("/add")

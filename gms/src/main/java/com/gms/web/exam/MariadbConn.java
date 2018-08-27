@@ -16,7 +16,7 @@ public class MariadbConn {
 					"mariadb",
 					"mariadb");
 			stmt = conn.createStatement(); 
-			String sql = "SELECT USERID FROM MEMBER";
+			String sql = "SELECT USERID FROM MEMBER WHERE USERID LIKE 'joon'";
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				s = rs.getString("USERID");
@@ -29,3 +29,5 @@ public class MariadbConn {
 		return s;
 	}
 }
+
+
