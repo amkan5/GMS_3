@@ -3,60 +3,66 @@ package com.gms.web.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gms.web.domain.MemberDTO;
+import com.gms.web.repository.MemberDAO;
 import com.gms.web.service.MemberService;
+
 
 @Service //스프링에서 꺼내와야함 
 public class MemberServiceImpl implements MemberService{
-
+	@Autowired MemberDAO memberDAO;
 	@Override
 	public void add(MemberDTO p) {
-		// TODO Auto-generated method stub
-		
+		if((Integer.parseInt(p.getSsn().substring(7,8))%2)==0) {
+			p.setGender("여자");
+		}else{
+			p.setGender("남자");
+		};
+		p.setAge(String.valueOf(119-Integer.parseInt(p.getSsn().substring(0, 2))));
+		memberDAO.insert(p);
 	}
 
 	@Override
 	public List<?> list(Map<?, ?> p) {
 		// TODO Auto-generated method stub
-		return null;
+		return memberDAO.selectList(p);
 	}
 
 	@Override
 	public List<?> search(Map<?, ?> p) {
 		// TODO Auto-generated method stub
-		return null;
+		return memberDAO.selectSome(p);
 	}
 
 	@Override
-	public MemberDTO retrieve(Map<?, ?> p) {
-		// TODO Auto-generated method stub
-		return null;
+	public MemberDTO retrieve(String p) {
+		return memberDAO.selectOne(p);
 	}
 
 	@Override
 	public int count(Map<?, ?> p) {
 		// TODO Auto-generated method stub
-		return 0;
+		return memberDAO.count(p);
 	}
 
 	@Override
 	public void modify(Map<?, ?> p) {
-		// TODO Auto-generated method stub
+		memberDAO.update(p);
 		
 	}
 
 	@Override
 	public void remove(Map<?, ?> p) {
-		// TODO Auto-generated method stub
+		memberDAO.delete(p);
 		
 	}
 
 	@Override
-	public boolean login(Map<?, ?> p) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean login(MemberDTO p) {
+		return (memberDAO.login(p)!=null);
 	}
 
 }

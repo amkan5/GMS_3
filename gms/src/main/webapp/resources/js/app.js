@@ -11,21 +11,52 @@ app = {
 			app.setContentView();
 			//selector 떄문에 있으면 있고 없으면 없는거야 
 			$('#login_btn').click(()=>{
-				location.href = app.x()+"/move/member/login";
+				location.href = app.x()+"/move/public/member/login";
 			});
 			$('#join_btn').click(()=>{
-				location.href = app.x()+"/move/member/add"
+				location.href = app.x()+"/move/public/member/add";
 			});
-			
+		/*	
+		   $('#add_submit').click(function(){ //얘는 달러 쓰는순간 dom객체 html
+				alert(app.x()+"/member/add");
+				var form = document.getElementById('addForm');
+		    	form.action = app.x()+"/member/add";
+				form.method = "post";
+				form.submit(); 
+			});*/
+			//j query방법 
+			$('#add_submit').click(function(){ 
+				alert(app.x()+"/member/add");
+				$('#addForm').attr({
+				action:app.x()+"/member/add",
+				method: "POST"
+				}).submit();
+			});
 			$('#log_submit').click(()=>{
-				console.log('들어왔니?')
-				location.href = app.x()+"/move/member/retrieve"
-			});
-			$('#add_btn').click(()=>{
-				location.href = app.x()+"/move/member/retrieve"
+				$('#loginForm').attr({
+					action:app.x()+"/member/login",
+					method: "POST"
+					}).submit();
+				//location.href = app.x()+"/member/login";
 			});
 			$('#logout_btn').click(()=>{
-				location.href = app.x()+"/move/common/content"
+				//로그아웃 어케줌?? app.session.member("");
+				location.href = app.x()+"/move/home/common/content";
+			});
+			$('#mypage_btn').click(()=>{
+				location.href = app.x()+"/move/auth/member/retrieve";
+			});
+			$('#remove_btn').click(()=>{
+				location.href = app.x()+"/move/home/common/content";
+			});
+			$('#home_btn').click(()=>{
+				location.href = app.x()+"/move/home/common/content";
+			});
+			$('#moveToUpdate').click(()=>{
+				location.href = app.x()+"/move/auth/member/update";
+			});
+			$('#moveToDelete').click(()=>{
+				location.href = app.x()+"/move/auth/member/remove";
 			});
 			
 		},
@@ -33,18 +64,23 @@ app = {
 			console.log('step 4 '+app.session.path('js'));
 		}
 };
+
 app.session = { //init에 접근가능 
 		context : x=>{
 			console.log('step 2'+x);
 			sessionStorage.setItem('context', x);
 			sessionStorage.setItem('js',x+'/resources/js');
-			sessionStorage.setItem('css',x+'resources/css');
-			sessionStorage.setItem('img',x+'resources/img');
+			sessionStorage.setItem('css',x+'/resources/css');
+			sessionStorage.setItem('img',x+'/resources/img');
 		},
 		path : x=>{
 			return sessionStorage.getItem(x);
+		},
+		member : x=>{
+			sessionStroage.setItem('member', x);
 		}
 };
+
 app.x = ()=>{
 	return app.session.path('context');
 };
@@ -56,6 +92,9 @@ app.c = ()=>{
 };
 app.i = ()=>{
 	return app.session.path('img');
+};
+app.m = ()=>{
+	return app.session.member('member');
 };
 
 

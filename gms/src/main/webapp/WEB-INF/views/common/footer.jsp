@@ -40,10 +40,10 @@
       </div>
     </div>
   </div>
-   <script src="<c:url value="/resources/bootstrap/js/jquery.min.js" />"></script>
+<%--    <script src="<c:url value="/resources/bootstrap/js/jquery.min.js" />"></script>
   <script src="<c:url value="/resources/bootstrap/js/jquery.easing.min.js" />"></script>
   <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
   <script type="text/javascript" src="<c:url value="/resources/bootstrap/js/slick.min.js" />"></script>
   <script type="text/javascript" src="<c:url value="/resources/bootstrap/js/custom.js" />"></script>
-  <script src="<c:url value="/resources/bootstrap/contactform/contactform.js" />"></script>
+  <script src="<c:url value="/resources/bootstrap/contactform/contactform.js" />"></script> --%>
 </div>

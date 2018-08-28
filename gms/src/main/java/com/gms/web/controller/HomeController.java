@@ -35,22 +35,20 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", context);
 		session.setAttribute("context", context);
 		//model.addAttribute("context", "");
-		return "public:common/content.tiles";
+		return "home:common/content.tiles";
 	}
 	@RequestMapping("/move/{prifix}/{dir}/{page}")
 	public String move(
-			@PathVariable String prefix,
+			@PathVariable String prifix,
 			@PathVariable String dir,
 			@PathVariable String page
 			) {
 		logger.info("HomeController ::: move() {}.", "ENTER");
-		String ret =  "public:"+dir+"/"+page+".tiles";
+		System.out.println(prifix+ "+" +dir+"+"+page);
 		/*if(page.equals("login")||page.equals("add")) {
 			ret =  "auth:"+dir+"/"+page+".tiles";
 		}*/
-		if(page.equals("retrieve")) {
-			ret = "auth:"+dir+"/"+page+".tiles";
-		}
-		return ret;
+		//로그인상태면 prifix -> auth // 아니면 public값으로 바꾸기
+		return prifix+":"+dir+"/"+page+".tiles";
 	}
 }

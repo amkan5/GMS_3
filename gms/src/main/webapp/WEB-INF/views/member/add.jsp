@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div id="contentBox">
-<form id="add_form" name="add_form">
+<form id="addForm" name="addForm">
  	<div id="add_layout">
  	<label for="userid"><b>아이디</b></label>
     <input type="text" placeholder="아이디 입력" name="userid" required>
@@ -46,7 +46,7 @@
         <input type="checkbox" name="subject" value="html" /> HTML
         <input type="checkbox" name="subject" value="spring" /> Spring
     </div> <br>
-     <button type="button" id="add_btn" class="jo_btns">JOIN</button>
+     <button type="button" id="add_submit" class="add_submits">JOIN</button>
     </form>
     </div>
    <!--  <script>

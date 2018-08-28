@@ -39,6 +39,7 @@
 </div>	
 <script>
 app.init('${context}');
+app.session.member('${member}');
 </script>
 </body>
 </html>

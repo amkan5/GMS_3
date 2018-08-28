@@ -20,9 +20,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#banner">Home</a></li>
+            <li class="active"><a id="home_btn" href="#banner">Home</a></li>
             <li><a id="join_btn" href="#service">Join</a></li>
-            <li><a href="#portfolio">Admin</a></li>
+            <li><a id="admin_btn" href="#portfolio">Admin</a></li>
             <li><a id="login_btn" href="#about">Login</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
