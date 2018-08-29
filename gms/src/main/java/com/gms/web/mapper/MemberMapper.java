@@ -11,7 +11,7 @@ import com.gms.web.domain.MemberDTO;
 import com.gms.web.repository.MemberDAO;
 @Repository
 public class MemberMapper implements MemberDAO{
-	@Autowired SqlSessionFactory factory;
+	@Autowired SqlSessionFactory factory;//새롭다
 	private static final String ns = 
 			"com.gms.web.mapper.MemberMapper"; //ns
 	@Override
