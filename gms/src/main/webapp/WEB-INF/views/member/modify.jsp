@@ -7,11 +7,11 @@
 				<img  src="${img}/mypage/profile.png" alt="" />
 			</td>
 			<td style="width: 50px">ID</td>
-			<td name="userid">${member.userid}</td>
+			<td id="userid"></td>
 		</tr>
 		<tr>
 			<td>이름</td>
-			<td>${member.name}</td>
+			<td id="name"></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
@@ -59,9 +59,10 @@
 </form>
 <script>
 app.session.getmember();
-
+$('#userid').text(app.m().userid);
+$('#name').text(app.m().name);
 console.log('modify에서 : '+app.session.getmember().userid);
-console.log('modify에서2 : '+member.userid);
+console.log('modify에서2 : '+app.m('userid'));
 console.log('${member}');
 /* var form = document.getElementById('updateForm');
 for(var i=1;i<=4;i++){

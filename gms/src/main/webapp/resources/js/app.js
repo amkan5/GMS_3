@@ -1,6 +1,7 @@
 "use strict"; //엄격한 문법을 적어 틀리면 에러처리하라는 명령 
 
 var app = app || {};
+var user = user || {};
 app = {
 		init : x=>{
 			console.log('step 1');
@@ -59,13 +60,16 @@ app = {
 				location.href = app.x()+"/move/home/common/content";
 			});
 			$('#moveToUpdate').click(()=>{
-				$('#updateForm').attr(
-				);
-				$('#retriveForm').attr({
+				/*$('#updateForm').attr(
+				);*/
+				/*$('#retriveForm').attr({
 					action: app.x()+"/member/retrieve",
 					method: "POST"	
-					}).submit();		
-				//location.href = app.x()+"/move/auth/member/modify";
+					}).submit();*/	
+				$('#updateForm').attr({
+						'userid': app.m().userid,
+						'name': app.m().name});
+				location.href = app.x()+"/move/auth/member/modify";
 			});
 			$('#moveToDelete').click(()=>{
 				location.href = app.x()+"/move/auth/member/remove";
@@ -76,6 +80,7 @@ app = {
 					method: "POST"	
 					}).submit();
 			});
+			
 		},
 		setContentView : ()=>{
 			console.log('step 4 '+app.session.path('js'));
@@ -94,16 +99,21 @@ app.session = { //init에 접근가능
 			return sessionStorage.getItem(x);
 		},
 		setmember : x=>{
-			console.log('setmem userid : '+x.userid);
-			sessionStorage.setItem('userid', x.userid);
+			if(x.userid!=""){
+			$.each(x, function(k,v){
+				sessionStorage.setItem(k,v);
+			});
+			}
+			/*sessionStorage.setItem('userid', x.userid);
 			sessionStorage.setItem('password', x.password);
 			sessionStorage.setItem('name', x.name);
 			sessionStorage.setItem('teamid', x.teamid);
 			sessionStorage.setItem('age', x.age);
 			sessionStorage.setItem('gender', x.gender);
-			sessionStorage.setItem('subject', x.subject);
+			sessionStorage.setItem('subject', x.subject);*/
 		},
 		getmember : ()=>{
+			//return sessionSotrage.getItem(x);
 			return {"userid":sessionStorage.getItem('userid'),
 				"password":sessionStorage.getItem('password'),
 				"name":sessionStorage.getItem('name'),
@@ -113,6 +123,7 @@ app.session = { //init에 접근가능
 				"subject":sessionStorage.getItem('subject')};
 		}
 };
+
 
 app.x = ()=>{
 	return app.session.path('context');

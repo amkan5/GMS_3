@@ -46,7 +46,7 @@ app.session.setmember({"userid":'${member.userid}',
 					"age":'${member.age}',
 					"gender":'${member.gender}',
 					"subject":'${member.subject}'});
-console.log("main에서 : "+app.session.getmember().userid);
+console.log("main에서 : "+app.m().userid);
 </script>
 </body>
 </html>
