@@ -9,7 +9,7 @@ app = {
 		},
 		onCreate : ()=>{
 			app.setContentView();
-			//selector 떄문에 있으면 있고 없으면 없는거야 
+			//selector 떄문에 있으면 있고 없으면 없는거야 z
 			$('#login_btn').click(()=>{
 				location.href = app.x()+"/move/public/member/login";
 			});
@@ -33,13 +33,19 @@ app = {
 				}).submit();
 			});
 			$('#log_submit').click(()=>{
-				$('#loginForm').attr({
+				$('#loginForm').attr(
+						{
 					action:app.x()+"/member/login",
 					method: "POST"
-					}).submit();
+					}
+						).submit();
+				//$('#github').attr("href", "https://www.naver.com");
+				
 				//location.href = app.x()+"/member/login";
 			});
 			$('#logout_btn').click(()=>{
+				//id주고 value 
+			
 				//로그아웃 어케줌?? app.session.member("");
 				location.href = app.x()+"/move/home/common/content";
 			});
@@ -53,12 +59,23 @@ app = {
 				location.href = app.x()+"/move/home/common/content";
 			});
 			$('#moveToUpdate').click(()=>{
-				location.href = app.x()+"/move/auth/member/update";
+				$('#updateForm').attr(
+				);
+				$('#retriveForm').attr({
+					action: app.x()+"/member/retrieve",
+					method: "POST"	
+					}).submit();		
+				//location.href = app.x()+"/move/auth/member/modify";
 			});
 			$('#moveToDelete').click(()=>{
 				location.href = app.x()+"/move/auth/member/remove";
 			});
-			
+			$('#modify_submit').click(()=>{
+				$('#updateForm').attr({
+					action: app.x()+"/member/modify",
+					method: "POST"	
+					}).submit();
+			});
 		},
 		setContentView : ()=>{
 			console.log('step 4 '+app.session.path('js'));
@@ -76,8 +93,24 @@ app.session = { //init에 접근가능
 		path : x=>{
 			return sessionStorage.getItem(x);
 		},
-		member : x=>{
-			sessionStroage.setItem('member', x);
+		setmember : x=>{
+			console.log('setmem userid : '+x.userid);
+			sessionStorage.setItem('userid', x.userid);
+			sessionStorage.setItem('password', x.password);
+			sessionStorage.setItem('name', x.name);
+			sessionStorage.setItem('teamid', x.teamid);
+			sessionStorage.setItem('age', x.age);
+			sessionStorage.setItem('gender', x.gender);
+			sessionStorage.setItem('subject', x.subject);
+		},
+		getmember : ()=>{
+			return {"userid":sessionStorage.getItem('userid'),
+				"password":sessionStorage.getItem('password'),
+				"name":sessionStorage.getItem('name'),
+				"teamid":sessionStorage.getItem('teamid'),
+				"age":sessionStorage.getItem('age'),
+				"gender":sessionStorage.getItem('gender'),
+				"subject":sessionStorage.getItem('subject')};
 		}
 };
 
@@ -90,11 +123,11 @@ app.j = ()=>{
 app.c = ()=>{
 	return app.session.path('css');
 };
-app.i = ()=>{
+app.i = ()=>{S
 	return app.session.path('img');
 };
 app.m = ()=>{
-	return app.session.member('member');
+	return app.session.getmember();
 };
 
 

@@ -15,5 +15,10 @@
   	INSERT INTO MEMBER(USERID,NAME,ROLL,TEAMID,AGE,PASSWORD,SSN,GENDER,SUBJECT) 
   	values (#{userid}, #{name}, #{roll}, #{teamid}, #{age}, #{password}, #{ssn}, #{gender}, #{subject})
   </insert>
-
+	<update id="update">
+		UPDATE MEMBER SET PASSWORD = #{password}, TEAMID = #{teamid}, ROLL = #{roll} WHERE USERID LIKE #{userid}
+	</update>
+	<delete id="delete">
+		DELETE FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password}
+	</delete>
 </mapper>

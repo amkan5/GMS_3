@@ -32,13 +32,26 @@ public class MemberController {
 	@RequestMapping("/search")
 	public void search() {}
 	@RequestMapping("/retrieve")
-	public void retrieve() {}
+	public String retrieve(@ModelAttribute("member") MemberDTO member,
+			Model model) {
+		System.out.println("name is "+member.getName());
+		//업데이트로 갈지 딜리트로갈지 
+		return "auth:member/modify.tiles";
+	}
 	@RequestMapping("/count")
 	public void count() {}
 	@RequestMapping("/modify")
-	public void modify() {}
+	public String modify(@ModelAttribute("member") MemberDTO member,
+			Model model) {
+		System.out.println("name is "+member.getName());
+		return "auth:member/modify.tiles";
+	}
 	@RequestMapping("/remove")
-	public void remove() {}
+	public String remove(@ModelAttribute MemberDTO member,
+			Model model) {
+		String path = "";
+		return path;
+	}
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(@ModelAttribute MemberDTO member,
 			Model model) {

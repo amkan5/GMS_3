@@ -39,7 +39,14 @@
 </div>	
 <script>
 app.init('${context}');
-app.session.member('${member}');
+app.session.setmember({"userid":'${member.userid}',
+					"password":'${member.password}',
+					"name":'${member.name}',
+					"teamid":'${member.teamid}',
+					"age":'${member.age}',
+					"gender":'${member.gender}',
+					"subject":'${member.subject}'});
+console.log("main에서 : "+app.session.getmember().userid);
 </script>
 </body>
 </html>
